@@ -8,7 +8,6 @@ import (
 // Comment - комментарий в посте
 type Comment struct {
 	gorm.Model
-	CommentID       uint      `gorm:"primaryKey"`
 	Content         string    `gorm:"size:2000;not null"`
 	CreatedTime     time.Time `gorm:"not null"`
 	UserID          uint      // Внешний ключ для связи с пользователем

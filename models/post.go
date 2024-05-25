@@ -1,13 +1,18 @@
 package models
 
-import "time"
+import (
+	"gorm.io/gorm"
+	"time"
+)
 
 // Post представляет пост пользователя в системе.
 type Post struct {
-	ID          int       // Уникальный идентификатор
-	Title       string    // Заголовок поста
-	Content     string    // Содержимое поста
-	Commentable bool      // Флаг, указывающий, можно ли комментировать пост
-	CreatedTime time.Time // Время создания поста
-	UserID      int       // ID пользователя, создавшего пост
+	gorm.Model
+	Title       string    `gorm:"size:64;not null"`
+	Content     string    `gorm:"type:text;not null"`
+	Commentable bool      `gorm:"not null"`
+	CreatedTime time.Time `gorm:"not null"`
+	UserID      uint      // Внешний ключ для связи с пользователем
+	User        User      // Связь многие к одному с пользователем
+	Comments    []Comment // Связь один ко многим с комментариями
 }
