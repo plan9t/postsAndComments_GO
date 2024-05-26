@@ -25,3 +25,6 @@ FOREIGN KEY (user_id) REFERENCES users(user_id),
 FOREIGN KEY (post_id) REFERENCES posts(post_id),
 FOREIGN KEY (parent_comment_id) REFERENCES comments(comment_id)
 )
+
+Для GORM:
+ALTER TABLE posts ADD COLUMN deleted_at TIMESTAMP WITH TIME ZONE;

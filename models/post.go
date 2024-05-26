@@ -1,13 +1,12 @@
 package models
 
 import (
-	"gorm.io/gorm"
 	"time"
 )
 
 // Post представляет пост пользователя в системе.
 type Post struct {
-	gorm.Model
+	PostID      uint      `gorm:"primary_key"`
 	Title       string    `gorm:"size:64;not null"`
 	Content     string    `gorm:"type:text;not null"`
 	Commentable bool      `gorm:"not null"`
