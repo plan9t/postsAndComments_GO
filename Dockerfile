@@ -1,4 +1,4 @@
-FROM golang:1.16 as builder
+FROM golang:1.22 as builder
 LABEL authors="planet-9"
 # Установи рабочую директорию в контейнере
 WORKDIR /app
@@ -28,5 +28,3 @@ EXPOSE 8090
 
 # Запуск приложения
 CMD ["./ozon_server"]
-
-ENTRYPOINT ["top", "-b"]
