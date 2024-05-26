@@ -17,7 +17,7 @@ services:
     image: dpage/pgadmin4:latest
     container_name: pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: hausthe@gmail.com
+      PGADMIN_DEFAULT_EMAIL: plan9t
       PGADMIN_DEFAULT_PASSWORD: plan9t
     ports:
       - "8080:80"
