@@ -1,6 +1,6 @@
 FROM golang:1.22 as builder
 LABEL authors="planet-9"
-# Установи рабочую директорию в контейнере
+# Установка рабочей директорию в контейнере
 WORKDIR /app
 
 # Копируем файлы модуля Go и ставим зависимости
@@ -11,10 +11,10 @@ RUN go mod download
 # Копируем исходный код в контейнер
 COPY . .
 
-# Сборка приложение
+# Сборка приложения
 RUN CGO_ENABLED=0 GOOS=linux go build -v -o ozon_server .
 
-# Используй образ alpine для финального образа из-за его малого размера
+# Используем образ alpine для финального образа из-за его малого размера
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 

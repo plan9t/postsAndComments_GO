@@ -222,7 +222,7 @@ func initGraphQLTypes(db *gorm.DB) {
 					},
 				},
 				"post": &graphql.Field{
-					Type: postType, // postType должен быть определен в другом месте вашего кода
+					Type: postType,
 					Args: graphql.FieldConfigArgument{
 						"id": &graphql.ArgumentConfig{
 							Type: graphql.NewNonNull(graphql.Int),
@@ -230,7 +230,7 @@ func initGraphQLTypes(db *gorm.DB) {
 					},
 					Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 						var post models.Post
-						id, ok := p.Args["id"].(int) // Убедитесь, что ID передается как int
+						id, ok := p.Args["id"].(int)
 						if !ok {
 							return nil, fmt.Errorf("id argument type must be int")
 						}
